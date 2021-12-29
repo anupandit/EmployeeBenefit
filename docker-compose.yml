@@ -5,6 +5,14 @@ services:
   mongo:
     image: mongo
     restart: always
-   # environment:
-     # MONGO_INITDB_ROOT_USERNAME: root
-      #MONGO_INITDB_ROOT_PASSWORD: example
+
+
+  employeeregistration:
+    container_name: emp_registration
+    build:
+      context: .
+      dockerfile: /home/knoldus/Downloads/EmployeeBenefit/Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo
